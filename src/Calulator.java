@@ -3,14 +3,15 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Line;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.control.*;
-import javafx.scene.text.*;
 
 public class Calulator  extends Application{
       Button b0;
@@ -35,133 +36,158 @@ public class Calulator  extends Application{
 	  Button modulus1;
 	  Button square;
 	  Button sum;
+	  Button sign;
 	  Label tf;
 	  Label tf1;
 	  Scene scene;
+	  MenuBar l1;
+		 Menu fileMenu ;
+		    MenuItem Standard;
+		    MenuItem Scientific;
+	         Menu f;
+		    Scentific sd=new Scentific(); 
+		    Stage thestage;	
 	  boolean  flag=false;
 	  @Override  
 	  public void start(Stage primaryStage) throws Exception { 
+		  thestage=primaryStage;
 		 
-	
-		  BorderPane pane=new BorderPane();
-		  VBox v=new VBox();
-		  v.setPadding(new Insets(10, 10,10, 10)); 
-		  tf = new Label(""); 
-		  tf.setPrefSize(500,35);
-		  v.setPrefSize(400,70);
-		  tf.setAlignment(Pos.BOTTOM_RIGHT); 
-		  tf.setStyle("-fx-background-color:#050505;-fx-font-size:30px;");
-		 // tf.setStyle("-fx-border-color: #69c4e2");
-		  tf1 = new Label(""); 
-		  tf1.setPrefSize(500, 35);
-		  tf1.setAlignment(Pos.BOTTOM_RIGHT); 
-		  tf1.setStyle("-fx-background-color:#050505;-fx-font-size:30px;");
-		  //tf1.setStyle("-fx-border-color: #69c4e2");
-		  v.setStyle("-fx-background-color:#EAE6E5;");
-		  v.getChildren().addAll(tf,tf1);
-		  HBox h2=new HBox(4);
-		  h2.setPadding(new Insets(0, 5, 5, 5)); 
-		  HBox h3=new HBox(4);
-		  h3.setPadding(new Insets(0, 5, 5, 5)); 
-		  HBox h4=new HBox(4);
-		  h4.setPadding(new Insets(0, 5, 5, 5)); 
-		  HBox h5=new HBox(4);
-		  h5.setPadding(new Insets(0, 5, 5, 5)); 
-		   b7=new Button("7");
-		   b7.setStyle("-fx-border-radius:10px;-fx-background-color:#F0EEEC;");
-		   b7.setPrefWidth(40);
-		   b8=new Button("8");
-		   b8.setStyle("-fx-border-radius:10px;-fx-background-color:#F0EEEC;");
-		   b8.setPrefWidth(40);
-		   b9=new Button("9");
-		   b9.setStyle("-fx-border-radius:10px;-fx-background-color:#F0EEEC;");
-		   b9.setPrefWidth(40);
-		   modulus1=new Button("%");
-		   modulus1.setStyle("-fx-border-radius:10px;-fx-background-color:#FF5C08;");
-		   modulus1.setPrefWidth(40);
-		   sqrt=new Button("CE");
-		   sqrt.setStyle("-fx-border-radius:10px;-fx-background-color:#E44F02;");
-		   sqrt.setPrefWidth(40);
-		   home=new Button("C");
-		   home.setStyle("-fx-border:10px;-fx-background-color:#E44F02;");
-		   home.setPrefWidth(40);
-		   h2.getChildren().addAll(b7,b8,b9,modulus1,sqrt,home);
-		   b4=new Button("4");
-		   b4.setStyle("-fx-border-radius:10px;-fx-background-color:#F0EEEC;");
-		   b4.setPrefWidth(40);
-		   b5=new Button("5");
-		   b5.setStyle("-fx-border-radius:10px;-fx-background-color:#F0EEEC;");
-		   b5.setPrefWidth(40);
-		   b6=new Button("6");
-		   b6.setStyle("-fx-border-radius:10px;-fx-background-color:#F0EEEC;");
-		   b6.setPrefWidth(40);
-		   multi=new Button("*");
-		   multi.setStyle("-fx-border-radius:10px;-fx-background-color:#FF5C08;");
-		   multi.setPrefWidth(40);
-		   opbracket=new Button("(");
-		   opbracket.setStyle("-fx-border-radius:10px;-fx-background-color:#FF5C08;");
-		   opbracket.setPrefWidth(40);
-		   clobracket=new Button(")");
-		   clobracket.setStyle("-fx-border-radius:10px;-fx-background-color:#FF5C08;");
-		   clobracket.setPrefWidth(40);
-		   h3.getChildren().addAll(b4,b5,b6,multi,opbracket,clobracket);
-		   b1=new Button("1");
-		   b1.setStyle("-fx-border-radius:10px;-fx-background-color:#F0EEEC;");
-		   b1.setPrefWidth(40);
-		   b2=new Button("2");
-		   b2.setStyle("-fx-border-radius:10px;-fx-background-color:#F0EEEC;");
-		   b2.setPrefWidth(40);
-		   b3=new Button("3");
-		   b3.setStyle("-fx-border-radius:10px;-fx-background-color:#F0EEEC;");
-		   b3.setPrefWidth(40);
-		   sub=new Button("-");
-		   sub.setStyle("-fx-border-radius:10px;-fx-background-color:#FF5C08;");
-		   sub.setPrefWidth(40);
-		   square=new Button("1/x");
-		   square.setStyle("-fx-border-radius:10px;-fx-background-color:#FF5C08;");
-		   square.setPrefWidth(40);
-		   div=new Button("/");
-		   div.setStyle("-fx-border-radius:10px;-fx-background-color:#FF5C08;");
-		   div.setPrefWidth(40);
-		  h4.getChildren().addAll(b1,b2,b3,sub,square,div);
-		   b0=new Button("0");
-		   b0.setStyle("-fx-border-radius:10px;-fx-background-color:#F0EEEC;");
-		   b0.setPrefWidth(80);
-		   dot=new Button(".");
-		   dot.setStyle("-fx-border-radius:10px;-fx-background-color:#F0EEEC;");
-		   dot.setPrefWidth(40);
-		   sum=new Button("+");
-		   sum.setStyle("-fx-border-radius:10px;-fx-background-color:#FF5C08;");
-		   sum.setPrefWidth(40);
-		   equal=new Button("=");
-		   equal.setStyle("-fx-border-radius:10px;-fx-background-color:#FF5C08;");
-		   equal.setPrefWidth(80);
-		  h5.getChildren().addAll(b0,dot,sum,equal);
-		  VBox v1=new VBox();
-		  v1.getChildren().addAll(h2,h3,h4,h5);
-		  v1.setAlignment(Pos.CENTER);
-		  v1.setStyle("-fx-background-color:#EAE6E5;");
-		  pane.setTop(v);
-		  pane.setCenter(v1); 
-		  handle_events();
-		  
-		  Scene scene1 = new Scene(pane, 250, 230);   
-		  primaryStage.setTitle("Aloma");
-		  primaryStage.setScene(scene1);
-		  primaryStage.setResizable(false);
-		  primaryStage.show(); 
+		  l1 = new MenuBar();
+			 fileMenu = new Menu("menu");
+		     Standard = new MenuItem("Standard");
+		     Scientific = new MenuItem("Scientific");
+		  fileMenu.getItems().addAll(Standard, Scientific);
+		    l1.getMenus().addAll(fileMenu);
+      Standard.setOnAction(e->{              
+				
+				
+			});
+		 
+      BorderPane pane=new BorderPane();
+	  VBox v=new VBox();
+	  v.setPadding(new Insets(10, 10,10, 10)); 
+	  tf = new Label(""); 
+	  tf.setPrefSize(500,35);
+	  tf.setStyle("-fx-background-color: #d3d3d3;");
+	  v.setPrefSize(400,70);
+	  tf.setAlignment(Pos.BOTTOM_RIGHT);
+	  tf1 = new Label(""); 
+	  tf1.setPrefSize(500, 35);
+	  tf1.setStyle("-fx-background-color: #d3d3d3;");
+	  tf1.setAlignment(Pos.BOTTOM_RIGHT);
+	  v.setStyle("-fx-background-color:black");
+	  v.getChildren().addAll(tf,tf1);
+	  HBox h2=new HBox(4);
+	  h2.setPadding(new Insets(0, 5, 5, 5)); 
+	  HBox h3=new HBox(4);
+	  h3.setPadding(new Insets(0, 5, 5, 5)); 
+	  HBox h4=new HBox(4);
+	  h4.setPadding(new Insets(0, 5, 5, 5)); 
+	  HBox h5=new HBox(4);
+	  h5.setPadding(new Insets(0, 5, 5, 5)); 
+	  HBox h6=new HBox(4);
+	  h6.setPadding(new Insets(3, 5, 5, 5)); 
+	  HBox h7=new HBox(4);
+	  h7.setPadding(new Insets(0, 5, 5, 5)); 
+	   sqrt=new Button("CE");
+	   sqrt.setPrefWidth(40);
+	   home=new Button("C");
+	   home.setPrefWidth(40);
+	   
+	   modulus1=new Button("%");
+	   modulus1.setPrefWidth(40);
+	  
+	   div=new Button("/");
+	   div.setPrefWidth(40);
+	   div.setStyle("-fx-background-color: #ff671c");
+	   
+	   h6.getChildren().addAll(sqrt,home,modulus1,div);
+	  
+	   b7=new Button("7");
+	   b7.setPrefWidth(40);
+	   b8=new Button("8");
+	   b8.setPrefWidth(40);
+	   b9=new Button("9");
+	   b9.setPrefWidth(40);
+	   multi=new Button("*");
+	   multi.setPrefWidth(40);
+	   multi.setStyle("-fx-background-color: #ff671c");
+
+	   h2.getChildren().addAll(b7,b8,b9,multi);
+	   b4=new Button("4");
+	   b4.setPrefWidth(40);
+	   b5=new Button("5");
+	   b5.setPrefWidth(40);
+	   b6=new Button("6");
+	   b6.setPrefWidth(40);
+	   sub=new Button("-");
+	   sub.setPrefWidth(40);
+	   sub.setStyle("-fx-background-color: #ff671c");
+	   h3.getChildren().addAll(b4,b5,b6,sub);
+	   
+	   b1=new Button("1");
+	   b1.setPrefWidth(40);
+	   b2=new Button("2");
+	   b2.setPrefWidth(40);
+	   b3=new Button("3");
+	   b3.setPrefWidth(40);
+	   sum=new Button("+");
+	   sum.setPrefWidth(40);
+	   sum.setStyle("-fx-background-color: #ff671c");
+	   h4.getChildren().addAll(b1,b2,b3,sum);
+	  
+	   b0=new Button("0");
+	   b0.setPrefWidth(80);
+	   dot=new Button(".");
+	   dot.setPrefWidth(40);
+	   equal=new Button("=");
+	   equal.setPrefWidth(40);
+	   equal.setStyle("-fx-background-color: #ff671c");
+	   h5.getChildren().addAll(b0,dot,equal);
+	   
+	   opbracket=new Button("(");
+	   opbracket.setPrefWidth(40);
+	   clobracket=new Button(")");
+	   clobracket.setPrefWidth(40);
+	   square=new Button("1/x");
+	   square.setPrefWidth(40);
+	   sign=new Button("±");
+	   sign.setPrefWidth(40);
+	   sign.setStyle("-fx-background-color:#ff671c");
+	   
+	   h7.getChildren().addAll(  square, opbracket,clobracket,sign);
+	  VBox v1=new VBox();
+	  v1.getChildren().addAll(h6,h7,h2,h3,h4,h5);
+	  v1.setStyle("-fx-background-color:black");
+	  v1.setAlignment(Pos.CENTER);
+	  pane.setBottom(v1);
+	  pane.setTop(l1);
+	  pane.setCenter(v); 
+	  handle_events();
+	  
+	  Scene scene = new Scene(pane, 170, 260);   
+	  primaryStage.setTitle("Aloma");
+	  primaryStage.setScene(scene);
+	  primaryStage.setResizable(false);
+	  primaryStage.show(); 
+
 
 }
-	  /*public String cc(String s1)
-	  {
-		  String s2;
-		  
-		  
-	  }*/
-	  void handle_events()
+	 
+	  /**  function do any action input from calculator by user
+	 * 
+	 */
+	void handle_events()
 	  {
 		  
 		  
+		 
+		  Scientific.setOnAction(e->{               
+				
+				thestage.setScene(sd.scene);
+				 sd.start(thestage);
+			});
+				 
 		  b0.setOnAction(e ->
 				  {
 					  if(flag)tf.setText("");

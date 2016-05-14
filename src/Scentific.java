@@ -1,5 +1,4 @@
 
-//import Calculator_code;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -44,6 +43,7 @@ public class Scentific extends Application {
 	  Button acos;
 	  Button atan;
 	  Button sqrt;
+	  Button square1;
 	  Button square;
 	  Button n;
 	  Button log;
@@ -53,25 +53,37 @@ public class Scentific extends Application {
 	  Label tf;
 	  Label tf1;
 	  Scene scene;
+	  MenuBar menu;
+		 Menu fileMenu ;
+		    MenuItem Standard;
+		    MenuItem Scientific;
+	         Menu f;
+	        
+		    Stage thestag;	
 	  boolean  flag=false;
 	  @Override  
-	  public void start(Stage primaryStage) { 
-		  
+	  public void start(Stage stage) { 
+		  thestag=stage;
+			 
+		  menu = new MenuBar();
+			 fileMenu = new Menu("menu");
+		     Standard = new MenuItem("Standard");
+		     Scientific = new MenuItem("Scientific");
+		  fileMenu.getItems().addAll(Standard, Scientific);
+		    menu.getMenus().addAll(fileMenu);
 		  BorderPane pane1=new BorderPane();
 		  VBox v=new VBox();
-		  v.setPadding(new Insets(10, 10,10, 10)); 
+		  v.setPadding(new Insets(13, 10,5, 10)); 
 		  tf = new Label(""); 
 		  tf.setPrefSize(500,35);
 		  v.setPrefSize(400,70);
-		  tf.setAlignment(Pos.BOTTOM_RIGHT);
-		  tf.setStyle("-fx-background-color:#F18B8B;-fx-font-size:30px;");
-		 // tf.setStyle("-fx-border-color: #69c4e2");
+		  tf.setAlignment(Pos.BOTTOM_RIGHT); 
 		  tf1 = new Label(""); 
 		  tf1.setPrefSize(500, 35);
+		  tf.setStyle("-fx-background-color:#d3d3d3;-fx-font-size:25;");
+		  tf1.setStyle("-fx-background-color:#d3d3d3;-fx-font-size:25;");
 		  tf1.setAlignment(Pos.BOTTOM_RIGHT); 
-		  tf1.setStyle("-fx-background-color:#F18B8B;-fx-font-size:30px;");
-		  //tf1.setStyle("-fx-border-color: #69c4e2");
-		  v.setStyle("-fx-border-color:#0B0B0B;-fx-border:30px;-fx-background-color:#0B0B0B;");
+		  v.setStyle("-fx-background-color:black;");
 		  v.getChildren().addAll(tf,tf1);
 		  HBox h2=new HBox(4);
 		  h2.setPadding(new Insets(0, 5, 5, 5)); 
@@ -81,130 +93,128 @@ public class Scentific extends Application {
 		  h4.setPadding(new Insets(0, 5, 5, 5)); 
 		  HBox h5=new HBox(4);
 		  h5.setPadding(new Insets(0, 5, 5, 5)); 
-		  b7=new Button("7");
-		   b7.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
+		   b7=new Button("7");
 		   b7.setPrefWidth(40);
 		   b8=new Button("8");
-		   b8.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   b8.setPrefWidth(40);
 		   b9=new Button("9");
-		   b9.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   b9.setPrefWidth(40);
 		   modulus=new Button("%");
-		   modulus.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   modulus.setPrefWidth(40);
-		   ce=new Button("←");
-		   ce.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
+		   ce=new Button("â†گ");
 		   ce.setPrefWidth(40);
-		   home=new Button("c");
-		   home.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
+		   home=new Button("C");
 		   home.setPrefWidth(40);
+		   home.setStyle("-fx-background-color: #fc8800");
+		   
 		   sin=new Button("sin");
-		   sin.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
-		   sin.setPrefWidth(80);
+		   sin.setPrefWidth(60);
+		   sin.setStyle("-fx-background-color: #a5a5a3");
+		   
 		   cos=new Button("cos");
-		   cos.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
-		   cos.setPrefWidth(80);
+		   cos.setPrefWidth(60);
+		   cos.setStyle("-fx-background-color: #a5a5a3");
+		   
 		   tan=new Button("tan");
-		   tan.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
-		   tan.setPrefWidth(80);
+		   tan.setPrefWidth(60);
+		   tan.setStyle("-fx-background-color: #a5a5a3");
+		   
 		   h2.getChildren().addAll(sin,cos,tan,b7,b8,b9,modulus,ce,home);
 		   b4=new Button("4");
-		   b4.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   b4.setPrefWidth(40);
 		   b5=new Button("5");
-		   b5.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   b5.setPrefWidth(40);
 		   b6=new Button("6");
-		   b6.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   b6.setPrefWidth(40);
 		   multi=new Button("*");
-		   multi.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   multi.setPrefWidth(40);
 		   opbracket=new Button("(");
-		   opbracket.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   opbracket.setPrefWidth(40);
 		   clobracket=new Button(")");
-		   clobracket.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   clobracket.setPrefWidth(40);
 		   asin=new Button("sin-1");
-		   asin.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
-		   asin.setPrefWidth(80);
+		   asin.setPrefWidth(60);
+		   asin.setStyle("-fx-background-color: #a5a5a3");
+		   
 		   acos=new Button("cos-1");
-		   acos.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
-		   acos.setPrefWidth(80);
+		   acos.setPrefWidth(60);
+		   acos.setStyle("-fx-background-color: #a5a5a3");
+		   
 		   atan=new Button("tan-1");
-		   atan.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
-		   atan.setPrefWidth(80);
+		   atan.setPrefWidth(60);
+		   atan.setStyle("-fx-background-color: #a5a5a3");
+		   
 		   h3.getChildren().addAll(asin,acos,atan,b4,b5,b6,multi,opbracket,clobracket);
 		   b1=new Button("1");
-		   b1.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   b1.setPrefWidth(40);
 		   b2=new Button("2");
-		   b2.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   b2.setPrefWidth(40);
 		   b3=new Button("3");
-		   b3.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   b3.setPrefWidth(40);
 		   sub=new Button("-");
-		   sub.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   sub.setPrefWidth(40);
 		   div=new Button("/");
-		   div.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   div.setPrefWidth(40);
 		   sum=new Button("+");
-		   sum.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   sum.setPrefWidth(40);
 		   x=new Button("ln");
-		   x.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
-		   x.setPrefWidth(80);
+		   x.setStyle("-fx-background-color: #a5a5a3");
+		   x.setPrefWidth(60);
 		   square=new Button("^2");
-		   square.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
-		   square.setPrefWidth(80);
+		   square.setStyle("-fx-background-color: #a5a5a3");
+		   square.setPrefWidth(60);
 		   n=new Button("^y");
-		   n.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
-		   n.setPrefWidth(80);
+		   n.setStyle("-fx-background-color: #a5a5a3");
+		   n.setPrefWidth(60);
 		   h4.getChildren().addAll(x,square,n,b1,b2,b3,sub,div,sum);
 		   b0=new Button("0");
-		   b0.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   b0.setPrefWidth(40);
 		   dot=new Button(".");
-		   dot.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   dot.setPrefWidth(40);
 		   equal=new Button("=");
-		   equal.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
 		   equal.setPrefWidth(80);
 		   log=new Button("log");
-		   log.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
-		   log.setPrefWidth(80);
+		   log.setStyle("-fx-background-color: #a5a5a3");
+		   log.setPrefWidth(60);
 		   factor=new Button("n!");
-		   factor.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
-		   factor.setPrefWidth(80);
-		   by=new Button("π");
-		   by.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
-		   by.setPrefWidth(80);
-		   sqrt=new Button("√");
-		   sqrt.setStyle("-fx-border-radius:10px;-fx-background-color:#F86E6E;");
+		   factor.setStyle("-fx-background-color: #a5a5a3");
+		   factor.setPrefWidth(60);
+		   by=new Button("د€");
+		   by.setStyle("-fx-background-color: #a5a5a3");
+		   by.setPrefWidth(60);
+		   sqrt=new Button("âˆڑ");
 		   sqrt.setPrefWidth(80);
 		  h5.getChildren().addAll(log,factor,by,sqrt,b0,dot,equal);
 		  VBox v1=new VBox();
 		  v1.getChildren().addAll(h2,h3,h4,h5);
 		  v1.setAlignment(Pos.CENTER);
-		  v1.setStyle("-fx-background-color:#050505;");
-		  pane1.setTop(v);
-		  pane1.setCenter(v1);
+		  v1.setStyle("-fx-background-color: BLACK");
+		   
+		  pane1.setBottom(v1);
+		  pane1.setTop(menu);
+		  pane1.setCenter(v);
 		  handle_events();
 		  
-		  scene = new Scene(pane1, 500, 230);   
-		  primaryStage.setTitle("Scentific");
-		  primaryStage.setScene(scene);
-		  primaryStage.setResizable(false);
-		  primaryStage.show(); 
+		  scene = new Scene(pane1, 400, 250);   
+		  stage.setTitle("Scentific");
+		  stage.setScene(scene);
+		  stage.setResizable(false);
+		  stage.show(); 
 	  }
 	  void handle_events()
 	  {
 		  
-		  
+		  Standard.setOnAction(e->{ 
+			  Calulator s=new Calulator(); 
+				
+				thestag.setScene(s.scene);
+				 try {
+					s.start(thestag);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			});
 		  b0.setOnAction(e ->
 				  {
 					  if(flag)tf.setText("");
@@ -529,8 +539,7 @@ public class Scentific extends Application {
 			  String s=tf.getText();
 			  double m=Double.valueOf(s);
 			  m*=m;
-			  tf.setText(m+"");
-			  tf1.setText(" ");
+			  tf1.setText(m+"");
 		  });
 		  n.setOnAction(e ->
 		  {
@@ -554,9 +563,11 @@ public class Scentific extends Application {
 		  });
 		  
 	  }
-	  public static void main(String[] args) {
+	  
+	/*  public static void main(String[] args) {
 	        Application.launch(args);
 
 	    }
+	  */  
 	  }
 	  

@@ -1,7 +1,5 @@
 
 
-
-
 public class Calculator_code {
 
 	private int first;
@@ -14,6 +12,7 @@ public class Calculator_code {
 			rt=rt.substring(0, rt.length()-2);
 		return rt; 
 	}
+	/////////////////////////////////////////////////////////////////////////////////
 	private double squa(double d1,double d2)
 	{
 		String d4=String.valueOf(d1);
@@ -32,10 +31,12 @@ public class Calculator_code {
 		{
 			d5*=D3;
 		}
-		// String d3=String.valueOf(d1);
+		
 		return d5;
 		
 	}
+	////////////////////////////////////////////////////////////////////////////////////
+
 	private String solve_between_brackets(String user_input)
 	{
 		int f=0;
@@ -55,6 +56,7 @@ public class Calculator_code {
 		}
 		return user_input;
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////
 	private double cul_after(String input, int i) {
 		
 		String str="";
@@ -67,6 +69,7 @@ public class Calculator_code {
 			else break;
 		return Double.valueOf(str);
 	}
+	//////////////////////////////////////////////////////////////////////////////////////////////////
 	private double cul_before(String input, int i) {
 		
 		String str="";
@@ -81,6 +84,7 @@ public class Calculator_code {
 		if(str=="")str="0";
 		return Double.valueOf(str);
 	}
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
 	private String mul_div(String input)
 	{
 		
@@ -171,13 +175,14 @@ public class Calculator_code {
 					d2=cul_after(input,i);
 				}
 				
-				input = input.substring(0,first) +  Double.valueOf(d1%d2).toString() + input.substring(second +1)  ;
+				input = input.substring(0,first) +  Double.valueOf(d1/d2).toString() + input.substring(second +1)  ;
 				i=-1; //re_cul
 			}
 					
 		}
 		return input;
 	}
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////
 	private String add_sub(String input)
 	{
 		for(int i=0; i<input.length(); ++i)
@@ -190,6 +195,7 @@ public class Calculator_code {
 				i=-1;
 				
 			}
+			//////////////////////////////////////////////////////////////////////////////////
 			else if(input.charAt(i)=='^')
 			{
 				double d1=cul_before(input,i);
@@ -210,6 +216,7 @@ public class Calculator_code {
 				input = input.substring(0,first) +  squa(d1,d2) + input.substring(second +1)  ;
 				i=-1; //re_cul
 			}
+			/////////////////////////////////////////////////////////////////////////////////////////
 			else if(input.charAt(i)=='-')
 			{
 				double d1=cul_before(input,i); 
@@ -221,6 +228,7 @@ public class Calculator_code {
 		}
 		return input;
 	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	private String det_sign(String input)
 	{
 		input = mul_div(input);
